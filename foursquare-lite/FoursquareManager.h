@@ -11,6 +11,8 @@
 
 @interface FoursquareManager : NSObject
 
+@property (nonatomic) NSDateFormatter *dateFormat;
+
 + (FoursquareManager *)sharedManager;
 - (void)getVenuesFromSearch:(void (^)(NSArray <Venue *> *venues, NSError *error))completionHandler;
 - (void)getVenuesFromExplore:(void (^)(NSArray <Venue *> *venues, NSError *error))completionHandler;

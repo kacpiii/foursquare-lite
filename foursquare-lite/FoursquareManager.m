@@ -9,8 +9,6 @@
 #import "FoursquareManager.h"
 #import <AFNetworking/AFNetworking.h>
 
-NSDateFormatter *dateFormat;
-
 @implementation FoursquareManager
 
 + (FoursquareManager *)sharedManager
@@ -20,8 +18,8 @@ NSDateFormatter *dateFormat;
     dispatch_once(&oncePredicate, ^{
         _sharedInstance = [[FoursquareManager alloc] init];
         
-        dateFormat = [NSDateFormatter new];
-        [dateFormat setDateFormat:@"yyyyMMdd"];
+        _sharedInstance.dateFormat = [NSDateFormatter new];
+        [_sharedInstance.dateFormat setDateFormat:@"yyyyMMdd"];
     });
     return _sharedInstance;
 }
