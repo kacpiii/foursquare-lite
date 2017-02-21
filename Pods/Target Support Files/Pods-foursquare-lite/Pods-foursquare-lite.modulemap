@@ -1,0 +1,6 @@
+framework module Pods_foursquare_lite {
+  umbrella header "Pods-foursquare-lite-umbrella.h"
+
+  export *
+  module * { export * }
+}
