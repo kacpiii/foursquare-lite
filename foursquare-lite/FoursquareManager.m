@@ -9,6 +9,8 @@
 #import "FoursquareManager.h"
 #import <AFNetworking/AFNetworking.h>
 
+NSDateFormatter *dateFormat;
+
 @implementation FoursquareManager
 
 + (FoursquareManager *)sharedManager
@@ -17,16 +19,19 @@
     static dispatch_once_t oncePredicate;
     dispatch_once(&oncePredicate, ^{
         _sharedInstance = [[FoursquareManager alloc] init];
+        
+        dateFormat = [NSDateFormatter new];
+        [dateFormat setDateFormat:@"yyyyMMdd"];
     });
     return _sharedInstance;
 }
 
-- (void)getVenues:(void (^)(NSArray <Venue *> *venues, NSError *error))completionHandler
+- (void)getVenuesFromSearch:(void (^)(NSArray <Venue *> *venues, NSError *error))completionHandler
 {
     NSDictionary *params = @{
                              @"client_id" : @"AXLFRYZ0ESKQVNPTMK1Y1RT10XLCSWVAEBAP0ZTANZKHYLIN",
                              @"client_secret" : @"1GWJR0XKM504Z4EBFPLL0MFO3GHGHUXZGJSYXJNDEYHROZ3A",
-                             @"v" : @"20170215",
+                             @"v" : [self returnDate],
                              @"near" : @"Warsaw",
                              @"ll" : @"40.7,-74"
                              };
@@ -68,6 +73,54 @@
      ];
 }
 
+- (void)getVenuesFromExplore:(void (^)(NSArray <Venue *> *venues, NSError *error))completionHandler
+{
+    NSDictionary *params = @{
+                             @"client_id" : @"AXLFRYZ0ESKQVNPTMK1Y1RT10XLCSWVAEBAP0ZTANZKHYLIN",
+                             @"client_secret" : @"1GWJR0XKM504Z4EBFPLL0MFO3GHGHUXZGJSYXJNDEYHROZ3A",
+                             @"v" : [self returnDate],
+                             @"near" : @"Warsaw, Poland",
+                             @"ll" : @"0,0"
+                             };
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    [manager GET:@"https://api.foursquare.com/v2/venues/explore"
+      parameters:params
+        progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             if (completionHandler) {
+                 NSMutableArray <Venue *> *venues = [NSMutableArray new];
+                 if (responseObject) {
+                     if ([responseObject[@"response"][@"groups"] isKindOfClass:[NSArray class]]) {
+                         NSArray *groupTemp = responseObject[@"response"][@"groups"];
+                         NSDictionary *temp = groupTemp[0];
+                         NSArray *itemsTemp = temp[@"items"];
+                         for (int i=0; i<itemsTemp.count; i++) {
+                             NSDictionary *venueTemp = itemsTemp[i][@"venue"];
+                             Venue *venue = [Venue new];
+                             venue.name = venueTemp[@"name"];
+                             venue.iid = venueTemp[@"id"];
+                             NSDictionary *locationTemp = venueTemp[@"location"];
+                             if (locationTemp) {
+                                 venue.lat = [locationTemp[@"lat"] doubleValue];
+                                 venue.lng = [locationTemp[@"lng"] doubleValue];
+                             }
+                             [venues addObject:venue];
+                         }
+                         completionHandler([venues copy], nil);
+                     }
+                 }
+             }
+         }
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             if (completionHandler) {
+                 completionHandler(nil, error);
+             }
+         }
+     ];
+}
+
 - (void)withArray:(NSArray <Venue *> *)venues getPhotos:(void (^)(NSArray *photos, NSError *error))completionHandler
 {
     for (Venue *venue in venues) {
@@ -77,7 +130,7 @@
         NSDictionary *params = @{
                                  @"client_id" : @"AXLFRYZ0ESKQVNPTMK1Y1RT10XLCSWVAEBAP0ZTANZKHYLIN",
                                  @"client_secret" : @"1GWJR0XKM504Z4EBFPLL0MFO3GHGHUXZGJSYXJNDEYHROZ3A",
-                                 @"v" : @"20170215"
+                                 @"v" : [self returnDate]
                                  };
         
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -109,6 +162,12 @@
              }
          ];
     }
+}
+
+- (NSString *)returnDate {
+    NSDate *now = [NSDate date];
+    NSString *nowString = [dateFormat stringFromDate:now];
+    return nowString;
 }
 
 @end

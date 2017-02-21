@@ -12,7 +12,9 @@
 @interface FoursquareManager : NSObject
 
 + (FoursquareManager *)sharedManager;
-- (void)getVenues:(void (^)(NSArray <Venue *> *venues, NSError *error))completionHandler;
+- (void)getVenuesFromSearch:(void (^)(NSArray <Venue *> *venues, NSError *error))completionHandler;
+- (void)getVenuesFromExplore:(void (^)(NSArray <Venue *> *venues, NSError *error))completionHandler;
 - (void)withArray:(NSArray*)array getPhotos:(void (^)(NSArray *photos, NSError *error))completionHandler;
+- (NSString *)returnDate;
 
 @end

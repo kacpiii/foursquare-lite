@@ -55,8 +55,8 @@
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [UIView new];
     
-    [[FoursquareManager sharedManager] getVenues:^(NSArray *localVenues, NSError *error) {
-        self.venues = [self sortArray:localVenues ascending:YES];
+    [[FoursquareManager sharedManager] getVenuesFromExplore:^(NSArray<Venue *> *venues, NSError *error) {
+        self.venues = venues;
         [self.tableView reloadData];
         [[FoursquareManager sharedManager] withArray:self.venues getPhotos:^(NSArray *photos, NSError *error) {
             self.photos = photos;
@@ -76,12 +76,11 @@
     CLLocation *venueLocation = [[CLLocation alloc] initWithLatitude:venue.lat longitude:venue.lng];
     float distance = [currentLocation distanceFromLocation:venueLocation];
     NSString *kilometers = [NSString stringWithFormat:@"%.02f km", distance/1000];
-    NSString *meters = [NSString stringWithFormat:@"%.0f m", distance/100];
     
     if (distance>1000) {
         cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", venue.name, kilometers];
     } else {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", venue.name, meters];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ - %.0f m", venue.name, distance];
     }
     
     if (venue.imageURL) {
