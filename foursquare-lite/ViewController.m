@@ -96,7 +96,9 @@
 }
 
 - (NSArray *)sortArray:(NSArray *)arrayToSorted ascending:(BOOL)asc {
-    NSArray *descriptor = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:asc selector:@selector(localizedCaseInsensitiveCompare:)]];
+    NSArray *descriptor = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name"
+                                                                                 ascending:asc
+                                                                                  selector:@selector(localizedCaseInsensitiveCompare:)]];
     NSArray *sortedVenues = [arrayToSorted sortedArrayUsingDescriptors:descriptor];
     [self setSorted:asc];
     return sortedVenues;

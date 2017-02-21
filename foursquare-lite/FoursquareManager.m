@@ -30,8 +30,8 @@
                              @"client_id" : @"AXLFRYZ0ESKQVNPTMK1Y1RT10XLCSWVAEBAP0ZTANZKHYLIN",
                              @"client_secret" : @"1GWJR0XKM504Z4EBFPLL0MFO3GHGHUXZGJSYXJNDEYHROZ3A",
                              @"v" : [self returnDate],
-                             @"near" : @"Warsaw",
-                             @"ll" : @"40.7,-74"
+                             @"near" : @"Warsaw, Poland",
+                             @"ll" : @"0,0"
                              };
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -164,7 +164,7 @@
 
 - (NSString *)returnDate {
     NSDate *now = [NSDate date];
-    NSString *nowString = [dateFormat stringFromDate:now];
+    NSString *nowString = [self.dateFormat stringFromDate:now];
     return nowString;
 }
 
