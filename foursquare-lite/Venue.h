@@ -13,6 +13,8 @@
 @property (nonatomic, copy) NSString *iid;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *imageURL;
+@property (nonatomic, copy) NSArray *imagesURL;
+@property (nonatomic) float distance;
 @property (nonatomic) double lat;
 @property (nonatomic) double lng;
 @property (nonatomic) int imagesCount;

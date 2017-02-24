@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -29,9 +30,12 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iZV-fM-gdA" id="ZTU-TF-Tkr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="INm-aH-T2F" kind="show" identifier="" id="AUf-cA-V1X"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -53,10 +57,53 @@
             </objects>
             <point key="canvasLocation" x="1080.8" y="138.98050974512745"/>
         </scene>
+        <!--Venue Details View Controller-->
+        <scene sceneID="4Gu-PK-7zq">
+            <objects>
+                <viewController storyboardIdentifier="venueDetailsViewController" id="INm-aH-T2F" customClass="venueDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LYm-69-69c"/>
+                        <viewControllerLayoutGuide type="bottom" id="N9p-5d-1hO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cIb-O7-aUN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="label" text="Venue name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hK-s6-zL5">
+                                <rect key="frame" x="67" y="432" width="240" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Aq8-yQ-rEQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bGp-XF-w2o">
+                                <rect key="frame" x="16" y="81" width="343" height="343"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1hK-s6-zL5" firstAttribute="top" secondItem="bGp-XF-w2o" secondAttribute="bottom" constant="8" id="2iP-M4-V7N"/>
+                            <constraint firstItem="bGp-XF-w2o" firstAttribute="centerX" secondItem="cIb-O7-aUN" secondAttribute="centerX" id="BHO-5N-BAX"/>
+                            <constraint firstItem="bGp-XF-w2o" firstAttribute="centerX" secondItem="1hK-s6-zL5" secondAttribute="centerX" id="I7N-km-irI"/>
+                            <constraint firstItem="bGp-XF-w2o" firstAttribute="top" secondItem="LYm-69-69c" secondAttribute="bottom" constant="17" id="hP0-p7-thv"/>
+                            <constraint firstItem="N9p-5d-1hO" firstAttribute="top" secondItem="1hK-s6-zL5" secondAttribute="bottom" constant="214" id="jUL-0m-fyw"/>
+                            <constraint firstItem="bGp-XF-w2o" firstAttribute="trailing" secondItem="cIb-O7-aUN" secondAttribute="trailingMargin" id="ySy-95-9VU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="venueImage" destination="bGp-XF-w2o" id="eSk-B3-7L7"/>
+                        <outlet property="venueName" destination="1hK-s6-zL5" id="wW4-MJ-dNC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MlS-zE-6Jj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2053.5999999999999" y="138.98050974512745"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="R4A-q8-eOS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1DR-Ki-RwW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W7C-mF-h24" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="P8Z-B4-08p">
@@ -68,6 +115,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="B7a-9W-RM1"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1DR-Ki-RwW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="141.59999999999999" y="138.98050974512745"/>
         </scene>

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "venueDetailsViewController.h"
 #import "FoursquareManager.h"
 #import "Venue.h"
 #import "UIImageView+AFNetworking.h"
@@ -21,6 +22,7 @@
 
 @property (nonatomic) NSArray <Venue *> *venues;
 @property (nonatomic) NSArray *photos;
+@property (nonatomic) NSMutableArray *distances;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (assign) BOOL sorted;
 
@@ -54,6 +56,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [UIView new];
+    self.distances = [NSMutableArray new];
     
     [[FoursquareManager sharedManager] getVenuesFromExplore:^(NSArray<Venue *> *venues, NSError *error) {
         self.venues = venues;
@@ -75,6 +78,8 @@
     
     CLLocation *venueLocation = [[CLLocation alloc] initWithLatitude:venue.lat longitude:venue.lng];
     float distance = [currentLocation distanceFromLocation:venueLocation];
+    venue.distance = distance;
+     
     NSString *kilometers = [NSString stringWithFormat:@"%.02f km", distance/1000];
     
     if (distance>1000) {
@@ -95,10 +100,26 @@
     return cell;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.destinationViewController isKindOfClass:[venueDetailsViewController class]]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Venue *venue = self.venues[indexPath.row];
+        NSString *name = venue.name;
+        NSString *imageURL = venue.imageURL;
+        [(venueDetailsViewController *)segue.destinationViewController setImageURL:imageURL];
+        [(venueDetailsViewController *)segue.destinationViewController setName:name];
+    }
+}
+
 - (NSArray *)sortArray:(NSArray *)arrayToSorted ascending:(BOOL)asc {
-    NSArray *descriptor = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name"
+//    NSArray *descriptor = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name"
+//                                                                                 ascending:asc
+//                                                                                  selector:@selector(localizedCaseInsensitiveCompare:)]];
+    
+    NSArray *descriptor = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"distance"
                                                                                  ascending:asc
-                                                                                  selector:@selector(localizedCaseInsensitiveCompare:)]];
+                                                                                  selector:nil]];
+    
     NSArray *sortedVenues = [arrayToSorted sortedArrayUsingDescriptors:descriptor];
     [self setSorted:asc];
     return sortedVenues;
