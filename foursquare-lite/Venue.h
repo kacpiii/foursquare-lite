@@ -13,6 +13,9 @@
 @property (nonatomic, copy) NSString *iid;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *imageURL;
+@property (nonatomic, copy) NSString *thumbImageURL;
+@property (nonatomic) float rating;
+@property (nonatomic, copy) NSString *ratingColor;
 @property (nonatomic, copy) NSArray *imagesURL;
 @property (nonatomic, copy) NSString *address;
 @property (nonatomic, copy) NSString *category;

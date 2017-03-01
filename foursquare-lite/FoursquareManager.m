@@ -31,7 +31,6 @@
                              @"client_id" : @"AXLFRYZ0ESKQVNPTMK1Y1RT10XLCSWVAEBAP0ZTANZKHYLIN",
                              @"client_secret" : @"1GWJR0XKM504Z4EBFPLL0MFO3GHGHUXZGJSYXJNDEYHROZ3A",
                              @"v" : [self returnDate],
-//                             @"near" : @"Warsaw, Poland",
                              @"ll" : [NSString stringWithFormat:@"%f, %f", location.coordinate.latitude, location.coordinate.longitude]
                              };
     
@@ -100,6 +99,8 @@
                              Venue *venue = [Venue new];
                              venue.name = venueTemp[@"name"];
                              venue.iid = venueTemp[@"id"];
+                             venue.rating = [venueTemp[@"rating"] floatValue];
+                             venue.ratingColor = venueTemp[@"ratingColor"];
                              NSDictionary *locationTemp = venueTemp[@"location"];
                              if (locationTemp) {
                                  venue.address = locationTemp[@"address"];
@@ -121,7 +122,9 @@
                                  NSDictionary *temp2 = photosTemp[0];
                                  NSArray *itemsTemp2 = temp2[@"items"];
                                  NSString *photoSize = @"400x400";
+                                 NSString *thumbSize = @"36x36";
                                  venue.imageURL = [NSString stringWithFormat:@"%@%@%@", itemsTemp2[0][@"prefix"], photoSize, itemsTemp2[0][@"suffix"]];
+                                 venue.thumbImageURL = [NSString stringWithFormat:@"%@%@%@", itemsTemp2[0][@"prefix"], thumbSize, itemsTemp2[0][@"suffix"]];
                              }
                              
                              [venues addObject:venue];

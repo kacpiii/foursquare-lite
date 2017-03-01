@@ -46,11 +46,10 @@
     for (Venue *venue in _venues) {
         GMSMarker *marker = [[GMSMarker alloc] init];
         marker.position = CLLocationCoordinate2DMake(venue.lat, venue.lng);
-        marker.title = venue.name;
+        marker.title = venue.name; 
         marker.map = _mapView;
         
-//        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:venue.imageURL]]];
-//        marker.icon = [self image:image scaledToSize:CGSizeMake(3.0f, 3.0f)];
+//        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:venue.thumbImageURL]]];
 //        marker.icon = image;
     }
 }

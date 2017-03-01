@@ -80,6 +80,28 @@
      
     Venue *venue =[self.venues objectAtIndex:indexPath.row];
     
+//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:venue.imageURL]
+//                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
+//                                          timeoutInterval:60.0];
+//    if (venue.imageURL) {
+//    [cell.imageView setImageWithURLRequest:request
+//                          placeholderImage:[UIImage imageNamed:@"placeholder"]
+//                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+//                                       [UIView transitionWithView:cell.imageView
+//                                                         duration:0.4
+//                                                          options:UIViewAnimationOptionTransitionCrossDissolve
+//                                                       animations:^{
+//                                                           cell.imageView.image = image;
+//                                                       }
+//                                                       completion:NULL];
+//                                   }
+//                                   failure:NULL];
+//        cell.imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+//        cell.imageView.layer.borderWidth = 2;
+//    } else {
+//        cell.imageView.image = [UIImage imageNamed:@"placeholder"];
+//    }
+    
     if (venue.imageURL) {
         [cell.imageView setImageWithURL:[NSURL URLWithString:venue.imageURL]
                        placeholderImage:[UIImage imageNamed:@"placeholder"]];
@@ -94,6 +116,10 @@
         cell.venueAddress.text = [NSString stringWithFormat:@"%@", venue.address];
     }
     cell.venueCategory.text = [[NSString stringWithFormat:@"%@", venue.category] uppercaseString];
+    cell.venueRating.text = [NSString stringWithFormat:@"%.01f", venue.rating];
+    
+    NSString *hex = [NSString stringWithFormat:@"0x%@", venue.ratingColor];
+    cell.ratingView.backgroundColor = [self colorFromHexString:hex];
     
     NSString *kilometers = [NSString stringWithFormat:@"%.02f", venue.distance / 1000];
     if (venue.distance > 1000) {
@@ -167,6 +193,16 @@
 - (IBAction)goToMapVC {
     mapViewController *mapVC = [self.storyboard instantiateViewControllerWithIdentifier:@"mapVC"];
     [self.navigationController pushViewController:mapVC animated:YES];
+}
+
+- (UIColor *)colorFromHexString:(NSString *)hexString {
+    unsigned rgbValue = 0;
+    NSScanner *scanner = [NSScanner scannerWithString:hexString];
+    if ( [hexString rangeOfString:@"#"].location == 0 ) {
+        [scanner setScanLocation:1]; // bypass '#' character
+    }
+    [scanner scanHexInt:&rgbValue];
+    return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
 }
 
 #pragma mark CLLocationManager Delegate

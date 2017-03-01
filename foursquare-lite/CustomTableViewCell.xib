@@ -36,19 +36,33 @@
                         <rect key="frame" x="315" y="7" width="60" height="60"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fub-jQ-hUZ">
-                                <rect key="frame" x="9" y="14" width="42" height="21"/>
+                                <rect key="frame" x="9" y="32" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZf-Ca-m3r">
-                                <rect key="frame" x="9" y="26" width="42" height="21"/>
+                                <rect key="frame" x="9" y="44" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ngu-wj-Gb1">
+                                <rect key="frame" x="13" y="0.0" width="34" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bpx-SD-oCJ">
+                                        <rect key="frame" x="-4" y="1" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.72912039974619292" blue="0.046728600471879135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -59,7 +73,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jl5-rS-W2L">
                         <rect key="frame" x="86" y="46" width="229" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XaU-2W-FBQ">
@@ -93,9 +107,11 @@
                 <outlet property="distanceUnit" destination="PZf-Ca-m3r" id="pcf-R6-azt"/>
                 <outlet property="distanceValue" destination="Fub-jQ-hUZ" id="aLe-Jl-DY9"/>
                 <outlet property="imageView" destination="OeY-pY-1gW" id="sEz-0f-HIz"/>
+                <outlet property="ratingView" destination="Ngu-wj-Gb1" id="p7c-zz-6TV"/>
                 <outlet property="venueAddress" destination="jl5-rS-W2L" id="SUl-Kj-y7j"/>
                 <outlet property="venueCategory" destination="XaU-2W-FBQ" id="D56-Ll-7Ty"/>
                 <outlet property="venueName" destination="Tf6-SH-cjm" id="4Jn-1O-PoC"/>
+                <outlet property="venueRating" destination="Bpx-SD-oCJ" id="dXx-dh-y1m"/>
             </connections>
             <point key="canvasLocation" x="21.5" y="-49.5"/>
         </tableViewCell>
