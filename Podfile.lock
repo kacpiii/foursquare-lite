@@ -14,13 +14,20 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - GoogleMaps (2.2.0):
+    - GoogleMaps/Maps (= 2.2.0)
+  - GoogleMaps/Base (2.2.0)
+  - GoogleMaps/Maps (2.2.0):
+    - GoogleMaps/Base
 
 DEPENDENCIES:
   - AFNetworking
+  - GoogleMaps
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
 
-PODFILE CHECKSUM: 330a9e957e459bb38dcb88af5af017f06e931be8
+PODFILE CHECKSUM: 9a175d0647dd05842eb78cbc594484a04a8e775a
 
 COCOAPODS: 1.0.0

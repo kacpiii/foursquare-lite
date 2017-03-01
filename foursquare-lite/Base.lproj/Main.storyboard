@@ -26,18 +26,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="venueCell" id="iZV-fM-gdA">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="customTableViewCell" id="iZV-fM-gdA" customClass="CustomTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iZV-fM-gdA" id="ZTU-TF-Tkr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="INm-aH-T2F" kind="show" identifier="" id="AUf-cA-V1X"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="VoW-Ru-NIg"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="PHX-6e-1je"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -48,14 +49,40 @@
                             <constraint firstAttribute="trailing" secondItem="TIE-Gq-c9v" secondAttribute="trailing" id="tk2-jz-iKp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jkO-h3-qYt"/>
+                    <navigationItem key="navigationItem" id="jkO-h3-qYt">
+                        <barButtonItem key="leftBarButtonItem" title="Map" id="OzK-Mk-cje">
+                            <connections>
+                                <segue destination="0ml-Jn-qsc" kind="show" identifier="showMap" id="ToS-qg-cuE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="mapButton" destination="OzK-Mk-cje" id="dI1-ts-j9b"/>
                         <outlet property="tableView" destination="TIE-Gq-c9v" id="6FD-16-UBM"/>
+                        <segue destination="INm-aH-T2F" kind="show" identifier="showDetails" id="2Uz-Sk-Lbp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080.8" y="138.98050974512745"/>
+            <point key="canvasLocation" x="1080.5" y="138.5"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="G4V-In-l1e">
+            <objects>
+                <viewController storyboardIdentifier="mapVC" id="0ml-Jn-qsc" customClass="mapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pha-Xi-w5k"/>
+                        <viewControllerLayoutGuide type="bottom" id="cpp-Le-VSG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dLQ-1H-LC4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jui-OJ-DiC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1081" y="897"/>
         </scene>
         <!--Venue Details View Controller-->
         <scene sceneID="4Gu-PK-7zq">
@@ -106,7 +133,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W7C-mF-h24" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P8Z-B4-08p">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="P8Z-B4-08p">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -3,4 +3,5 @@ use_frameworks!
 
 target ‘foursquare-lite’ do
   pod 'AFNetworking'
+  pod 'GoogleMaps'
 end

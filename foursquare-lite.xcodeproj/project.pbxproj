@@ -11,11 +11,14 @@
 		09585A2D1E5C54C900F1D815 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 09585A2C1E5C54C900F1D815 /* main.m */; };
 		09585A301E5C54C900F1D815 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09585A2F1E5C54C900F1D815 /* AppDelegate.m */; };
 		09585A331E5C54C900F1D815 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09585A321E5C54C900F1D815 /* ViewController.m */; };
-		09585A361E5C54C900F1D815 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09585A341E5C54C900F1D815 /* Main.storyboard */; };
 		09585A381E5C54C900F1D815 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09585A371E5C54C900F1D815 /* Assets.xcassets */; };
 		09585A3B1E5C54C900F1D815 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09585A391E5C54C900F1D815 /* LaunchScreen.storyboard */; };
 		09585A441E5C55A100F1D815 /* FoursquareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 09585A431E5C55A100F1D815 /* FoursquareManager.m */; };
 		09585A471E5C55E700F1D815 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 09585A461E5C55E700F1D815 /* Venue.m */; };
+		096F6E291E608B0300770663 /* mapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 096F6E281E608B0300770663 /* mapViewController.m */; };
+		096F6E2C1E60E52400770663 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 096F6E2A1E60E52400770663 /* Main.storyboard */; };
+		09726CA01E66D31B00976FD1 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09726C9F1E66D31B00976FD1 /* CustomTableViewCell.m */; };
+		09726CA21E66DFA800976FD1 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09726CA11E66DFA800976FD1 /* CustomTableViewCell.xib */; };
 		A1E20949CCC40E3B87BCC4EC /* Pods_foursquare_lite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5AA44542402191926CFC050 /* Pods_foursquare_lite.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +31,6 @@
 		09585A2F1E5C54C900F1D815 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		09585A311E5C54C900F1D815 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		09585A321E5C54C900F1D815 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		09585A351E5C54C900F1D815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		09585A371E5C54C900F1D815 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09585A3A1E5C54C900F1D815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09585A3C1E5C54C900F1D815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -36,6 +38,12 @@
 		09585A431E5C55A100F1D815 /* FoursquareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoursquareManager.m; sourceTree = "<group>"; };
 		09585A451E5C55E700F1D815 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
 		09585A461E5C55E700F1D815 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
+		096F6E271E608B0300770663 /* mapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mapViewController.h; sourceTree = "<group>"; };
+		096F6E281E608B0300770663 /* mapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mapViewController.m; sourceTree = "<group>"; };
+		096F6E2B1E60E52400770663 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		09726C9E1E66D31B00976FD1 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		09726C9F1E66D31B00976FD1 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		09726CA11E66DFA800976FD1 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		4B64E6AAE7D3843715419539 /* Pods-foursquare-lite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foursquare-lite.release.xcconfig"; path = "Pods/Target Support Files/Pods-foursquare-lite/Pods-foursquare-lite.release.xcconfig"; sourceTree = "<group>"; };
 		D392CD54642BDF9B20BCAC62 /* Pods-foursquare-lite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foursquare-lite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foursquare-lite/Pods-foursquare-lite.debug.xcconfig"; sourceTree = "<group>"; };
 		D5AA44542402191926CFC050 /* Pods_foursquare_lite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foursquare_lite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,7 +86,7 @@
 				09585A2F1E5C54C900F1D815 /* AppDelegate.m */,
 				09585A311E5C54C900F1D815 /* ViewController.h */,
 				09585A321E5C54C900F1D815 /* ViewController.m */,
-				09585A341E5C54C900F1D815 /* Main.storyboard */,
+				096F6E2A1E60E52400770663 /* Main.storyboard */,
 				09585A371E5C54C900F1D815 /* Assets.xcassets */,
 				09585A391E5C54C900F1D815 /* LaunchScreen.storyboard */,
 				09585A3C1E5C54C900F1D815 /* Info.plist */,
@@ -89,6 +97,11 @@
 				09585A461E5C55E700F1D815 /* Venue.m */,
 				0938D2801E5E32920013C083 /* venueDetailsViewController.h */,
 				0938D2811E5E32920013C083 /* venueDetailsViewController.m */,
+				096F6E271E608B0300770663 /* mapViewController.h */,
+				096F6E281E608B0300770663 /* mapViewController.m */,
+				09726C9E1E66D31B00976FD1 /* CustomTableViewCell.h */,
+				09726C9F1E66D31B00976FD1 /* CustomTableViewCell.m */,
+				09726CA11E66DFA800976FD1 /* CustomTableViewCell.xib */,
 			);
 			path = "foursquare-lite";
 			sourceTree = "<group>";
@@ -180,9 +193,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				096F6E2C1E60E52400770663 /* Main.storyboard in Resources */,
 				09585A3B1E5C54C900F1D815 /* LaunchScreen.storyboard in Resources */,
+				09726CA21E66DFA800976FD1 /* CustomTableViewCell.xib in Resources */,
 				09585A381E5C54C900F1D815 /* Assets.xcassets in Resources */,
-				09585A361E5C54C900F1D815 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +259,9 @@
 				09585A301E5C54C900F1D815 /* AppDelegate.m in Sources */,
 				09585A441E5C55A100F1D815 /* FoursquareManager.m in Sources */,
 				09585A471E5C55E700F1D815 /* Venue.m in Sources */,
+				096F6E291E608B0300770663 /* mapViewController.m in Sources */,
 				09585A2D1E5C54C900F1D815 /* main.m in Sources */,
+				09726CA01E66D31B00976FD1 /* CustomTableViewCell.m in Sources */,
 				0938D2821E5E32920013C083 /* venueDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,20 +269,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		09585A341E5C54C900F1D815 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				09585A351E5C54C900F1D815 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		09585A391E5C54C900F1D815 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				09585A3A1E5C54C900F1D815 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		096F6E2A1E60E52400770663 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				096F6E2B1E60E52400770663 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -365,6 +381,7 @@
 			baseConfigurationReference = D392CD54642BDF9B20BCAC62 /* Pods-foursquare-lite.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 474A8X442S;
 				INFOPLIST_FILE = "foursquare-lite/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -378,6 +395,7 @@
 			baseConfigurationReference = 4B64E6AAE7D3843715419539 /* Pods-foursquare-lite.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 474A8X442S;
 				INFOPLIST_FILE = "foursquare-lite/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

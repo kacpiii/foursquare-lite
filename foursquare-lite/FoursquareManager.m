@@ -8,6 +8,7 @@
 
 #import "FoursquareManager.h"
 #import <AFNetworking/AFNetworking.h>
+#import "ViewController.h"
 
 @implementation FoursquareManager
 
@@ -24,14 +25,14 @@
     return _sharedInstance;
 }
 
-- (void)getVenuesFromSearch:(void (^)(NSArray <Venue *> *venues, NSError *error))completionHandler
+- (void)withLocation:(CLLocation *)location getVenuesFromSearch:(void (^)(NSArray <Venue *> *venues, NSError *error))completionHandler
 {
     NSDictionary *params = @{
                              @"client_id" : @"AXLFRYZ0ESKQVNPTMK1Y1RT10XLCSWVAEBAP0ZTANZKHYLIN",
                              @"client_secret" : @"1GWJR0XKM504Z4EBFPLL0MFO3GHGHUXZGJSYXJNDEYHROZ3A",
                              @"v" : [self returnDate],
-                             @"near" : @"Warsaw, Poland",
-                             @"ll" : @"0,0"
+//                             @"near" : @"Warsaw, Poland",
+                             @"ll" : [NSString stringWithFormat:@"%f, %f", location.coordinate.latitude, location.coordinate.longitude]
                              };
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -71,14 +72,14 @@
      ];
 }
 
-- (void)getVenuesFromExplore:(void (^)(NSArray <Venue *> *venues, NSError *error))completionHandler
+- (void)withLocation:(CLLocation *)location getVenuesFromExplore:(void (^)(NSArray <Venue *> *venues, NSError *error))completionHandler
 {
     NSDictionary *params = @{
                              @"client_id" : @"AXLFRYZ0ESKQVNPTMK1Y1RT10XLCSWVAEBAP0ZTANZKHYLIN",
                              @"client_secret" : @"1GWJR0XKM504Z4EBFPLL0MFO3GHGHUXZGJSYXJNDEYHROZ3A",
                              @"v" : [self returnDate],
-                             @"near" : @"Warsaw, Poland",
-                             @"ll" : @"0,0"
+                             @"venuePhotos" : @(YES),
+                             @"ll" : [NSString stringWithFormat:@"%f, %f", location.coordinate.latitude, location.coordinate.longitude]
                              };
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -103,7 +104,21 @@
                              if (locationTemp) {
                                  venue.lat = [locationTemp[@"lat"] doubleValue];
                                  venue.lng = [locationTemp[@"lng"] doubleValue];
+                                 if (venue.lat && venue.lng) {
+                                     CLLocation *venueLocation = [[CLLocation alloc] initWithLatitude:venue.lat longitude:venue.lng];
+                                     float distance = [location distanceFromLocation:venueLocation];
+                                     venue.distance = distance;
+                                 }
                              }
+                             int photosCount = [venueTemp[@"photos"][@"count"] intValue];
+                             if (photosCount > 0) {
+                                 NSArray *photosTemp = venueTemp[@"photos"][@"groups"];
+                                 NSDictionary *temp2 = photosTemp[0];
+                                 NSArray *itemsTemp2 = temp2[@"items"];
+                                 NSString *photoSize = @"400x400";
+                                 venue.imageURL = [NSString stringWithFormat:@"%@%@%@", itemsTemp2[0][@"prefix"], photoSize, itemsTemp2[0][@"suffix"]];
+                             }
+                             
                              [venues addObject:venue];
                          }
                          completionHandler([venues copy], nil);
