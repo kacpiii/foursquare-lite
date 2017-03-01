@@ -58,6 +58,9 @@
     UIBarButtonItem *sortIcon = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"sort"] style:UIBarButtonItemStyleDone target:self action:@selector(buttonPressed:)];
     self.navigationItem.rightBarButtonItem = sortIcon;
     
+    self.navigationController.navigationBar.barStyle = 0;
+    self.navigationController.navigationBar.translucent = YES;
+    
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [UIView new];
 }
@@ -87,6 +90,10 @@
     }
     
     cell.venueName.text = [NSString stringWithFormat:@"%@", venue.name];
+    if (venue.address) {
+        cell.venueAddress.text = [NSString stringWithFormat:@"%@", venue.address];
+    }
+    cell.venueCategory.text = [[NSString stringWithFormat:@"%@", venue.category] uppercaseString];
     
     NSString *kilometers = [NSString stringWithFormat:@"%.02f", venue.distance / 1000];
     if (venue.distance > 1000) {

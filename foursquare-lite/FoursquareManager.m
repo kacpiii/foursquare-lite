@@ -102,6 +102,7 @@
                              venue.iid = venueTemp[@"id"];
                              NSDictionary *locationTemp = venueTemp[@"location"];
                              if (locationTemp) {
+                                 venue.address = locationTemp[@"address"];
                                  venue.lat = [locationTemp[@"lat"] doubleValue];
                                  venue.lng = [locationTemp[@"lng"] doubleValue];
                                  if (venue.lat && venue.lng) {
@@ -110,6 +111,10 @@
                                      venue.distance = distance;
                                  }
                              }
+                             NSArray *categoryTemp = venueTemp[@"categories"];
+                             NSDictionary *categories = categoryTemp[0];
+                             venue.category = [NSString stringWithFormat:@"%@", categories[@"name"]];
+                             
                              int photosCount = [venueTemp[@"photos"][@"count"] intValue];
                              if (photosCount > 0) {
                                  NSArray *photosTemp = venueTemp[@"photos"][@"groups"];

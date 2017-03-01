@@ -56,12 +56,34 @@
                             <constraint firstAttribute="height" constant="60" id="fFd-0T-GOw"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jl5-rS-W2L">
+                        <rect key="frame" x="86" y="46" width="229" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XaU-2W-FBQ">
+                        <rect key="frame" x="86" y="10" width="229" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Cat-Ww-SKW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="XaU-2W-FBQ" firstAttribute="leading" secondItem="OeY-pY-1gW" secondAttribute="trailing" constant="8" id="08P-os-lkO"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="jl5-rS-W2L" secondAttribute="bottom" constant="-0.5" id="4gA-22-9Dp"/>
+                    <constraint firstItem="R7b-Iw-MUO" firstAttribute="leading" secondItem="jl5-rS-W2L" secondAttribute="trailing" id="7UC-yW-4vc"/>
+                    <constraint firstItem="jl5-rS-W2L" firstAttribute="leading" secondItem="OeY-pY-1gW" secondAttribute="trailing" constant="8" id="JLF-GS-S7G"/>
+                    <constraint firstItem="R7b-Iw-MUO" firstAttribute="leading" secondItem="XaU-2W-FBQ" secondAttribute="trailing" id="LL3-ks-wZa"/>
                     <constraint firstAttribute="trailing" secondItem="R7b-Iw-MUO" secondAttribute="trailing" id="Vlq-yT-2W9"/>
                     <constraint firstItem="Tf6-SH-cjm" firstAttribute="centerY" secondItem="Zo5-Ff-ULo" secondAttribute="centerY" id="b7p-jB-qaw"/>
                     <constraint firstItem="R7b-Iw-MUO" firstAttribute="centerY" secondItem="Zo5-Ff-ULo" secondAttribute="centerY" id="bn3-tJ-lT0"/>
                     <constraint firstItem="R7b-Iw-MUO" firstAttribute="leading" secondItem="Tf6-SH-cjm" secondAttribute="trailing" id="bvh-gS-ch3"/>
+                    <constraint firstItem="jl5-rS-W2L" firstAttribute="top" secondItem="Tf6-SH-cjm" secondAttribute="bottom" constant="-2" id="e0R-ee-rSB"/>
+                    <constraint firstAttribute="topMargin" secondItem="XaU-2W-FBQ" secondAttribute="top" constant="-2" id="ggd-Re-3Kw"/>
                     <constraint firstItem="OeY-pY-1gW" firstAttribute="centerY" secondItem="Zo5-Ff-ULo" secondAttribute="centerY" id="rbf-l2-Qcc"/>
                     <constraint firstAttribute="leadingMargin" secondItem="OeY-pY-1gW" secondAttribute="leading" id="sTj-MK-qgt"/>
                     <constraint firstItem="Tf6-SH-cjm" firstAttribute="leading" secondItem="OeY-pY-1gW" secondAttribute="trailing" constant="8" id="ujO-9w-Pgf"/>
@@ -71,6 +93,8 @@
                 <outlet property="distanceUnit" destination="PZf-Ca-m3r" id="pcf-R6-azt"/>
                 <outlet property="distanceValue" destination="Fub-jQ-hUZ" id="aLe-Jl-DY9"/>
                 <outlet property="imageView" destination="OeY-pY-1gW" id="sEz-0f-HIz"/>
+                <outlet property="venueAddress" destination="jl5-rS-W2L" id="SUl-Kj-y7j"/>
+                <outlet property="venueCategory" destination="XaU-2W-FBQ" id="D56-Ll-7Ty"/>
                 <outlet property="venueName" destination="Tf6-SH-cjm" id="4Jn-1O-PoC"/>
             </connections>
             <point key="canvasLocation" x="21.5" y="-49.5"/>

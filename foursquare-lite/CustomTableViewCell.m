@@ -11,6 +11,8 @@
 @implementation CustomTableViewCell
 
 @synthesize venueName = _venueName;
+@synthesize venueAddress = _venueAddress;
+@synthesize venueCategory = _venueCategory;
 @synthesize distanceValue = _distanceValue;
 @synthesize distanceUnit = _distanceUnit;
 @synthesize imageView = _imageView;

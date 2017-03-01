@@ -11,6 +11,8 @@
 @interface CustomTableViewCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *venueName;
+@property (nonatomic, weak) IBOutlet UILabel *venueAddress;
+@property (nonatomic, weak) IBOutlet UILabel *venueCategory;
 @property (nonatomic, weak) IBOutlet UILabel *distanceValue;
 @property (nonatomic, weak) IBOutlet UILabel *distanceUnit;
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
