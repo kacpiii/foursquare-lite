@@ -6,3 +6,5 @@ Features:
 - explore & search endpoints support with real-time update;
 - details screen for each location;
 - map view with markers (Google Maps API included) 
+
+Application in continuous development.
